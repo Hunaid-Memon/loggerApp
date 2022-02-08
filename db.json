@@ -1,0 +1,37 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Created Home Page",
+      "attention": true,
+      "date": "05-05-2022",
+      "developer": "Hunaid Memon"
+    },
+    {
+      "id": 2,
+      "message": "Created Product Page",
+      "attention": false,
+      "date": "05-06-2022",
+      "developer": "Hunaid Memon"
+    },
+    {
+      "id": 3,
+      "message": "Created Cart Page",
+      "attention": false,
+      "date": "05-06-2022",
+      "developer": "Hunaid Memon"
+    }
+  ],
+  "developers": [
+    {
+      "id": 1,
+      "firstName": "Hunaid",
+      "lastName": "Memon"
+    },
+    {
+      "id": 2,
+      "firstName": "Muhammad",
+      "lastName": "Yousuf"
+    }
+  ]
+}
