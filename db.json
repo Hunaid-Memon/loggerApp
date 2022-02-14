@@ -1,25 +1,11 @@
 {
   "logs": [
     {
-      "message": "Conduct class on Friday ",
+      "message": "Project 1 is running for running",
       "attention": true,
       "developer": "Hunaid Memon",
-      "date": "2022-02-10T19:40:14.132Z",
+      "date": "2022-02-12T18:32:59.192Z",
       "id": 1
-    },
-    {
-      "message": "Expense Tracker App project is pending",
-      "attention": true,
-      "developer": "Hunaid Memon",
-      "date": "2022-02-10T19:40:42.634Z",
-      "id": 2
-    },
-    {
-      "message": "Task App is Completed",
-      "attention": false,
-      "developer": "Hunaid Memon",
-      "date": "2022-02-10T19:41:13.927Z",
-      "id": 3
     }
   ],
   "developers": [

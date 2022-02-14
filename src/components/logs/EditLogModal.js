@@ -1,11 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { updateLog } from '../../actions/logAction';
 import M from 'materialize-css/dist/js/materialize.min.js'
 
-const EditLogModal = () => {
+const EditLogModal = ({ current, updateLog }) => {
 
     const [message, setMessage] = useState('');
     const [attention, setAttention] = useState('');
     const [developer, setDeveloper] = useState('');
+
+    useEffect(() => {
+        if(current) {
+            setMessage(current.message);
+            setAttention(current.attention);
+            setDeveloper(current.developer)
+        }
+    }, [current])
 
     const onSubmit = () => {
         if(message === '' || developer === '') {
@@ -29,7 +40,6 @@ const EditLogModal = () => {
                                 value={message}
                                 onChange={e => setMessage(e.target.value)}
                             />
-                        <label htmlFor="message" className="active" >Developer Log</label>
                     </div>
                 </div>
                 <div className="raw">
@@ -73,4 +83,13 @@ const EditLogModal = () => {
     );
 };
 
-export default EditLogModal;
+EditLogModal.propTypes = {
+    current: PropTypes.object,
+    updateLog: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => {
+    current: state.log.current
+}
+
+export default connect(mapStateToProps, { updateLog })(EditLogModal);
