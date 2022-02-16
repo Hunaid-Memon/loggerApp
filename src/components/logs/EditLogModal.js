@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { updateLog } from '../../actions/logAction';
 import M from 'materialize-css/dist/js/materialize.min.js'
 
-const EditLogModal = ({ current, updateLog }) => {
+const EditLogModal = ({ updateLog, current }) => {
 
     const [message, setMessage] = useState('');
     const [attention, setAttention] = useState('');
@@ -22,7 +22,18 @@ const EditLogModal = ({ current, updateLog }) => {
         if(message === '' || developer === '') {
             M.toast({ html: 'Please provide value for message and developer' })
         } else {
-            console.log(message, attention, developer);
+            const updatedLog = {
+                id: current.id,
+                message,
+                attention,
+                developer,
+                date: new Date()
+            }
+
+            updateLog(updatedLog);
+
+            M.toast({ html: 'Log Updated' });
+
             setMessage('');
             setAttention(false);
             setDeveloper('');
@@ -88,8 +99,8 @@ EditLogModal.propTypes = {
     updateLog: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
     current: state.log.current
-}
+})
 
-export default connect(mapStateToProps, { updateLog })(EditLogModal);
+export default connect(mapStateToProps, { updateLog  })(EditLogModal);

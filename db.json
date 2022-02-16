@@ -1,11 +1,11 @@
 {
   "logs": [
     {
-      "message": "Project 1 is running for running",
-      "attention": true,
+      "id": 1,
+      "message": "Project 1 is running",
+      "attention": false,
       "developer": "Hunaid Memon",
-      "date": "2022-02-12T18:32:59.192Z",
-      "id": 1
+      "date": "2022-02-16T19:54:50.776Z"
     }
   ],
   "developers": [
