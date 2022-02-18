@@ -29,21 +29,21 @@ export const addDeveloper = developer => async dispatch => {
 }
 
 // Action to delete a log
-export const deleteLog = id => async dispatch => {
+export const deleteDeveloper = id => async dispatch => {
     try {
         // Set loading to true
         setLoading();
-        await fetch(`/logs/${id}`, {
+        await fetch(`/developers/${id}`, {
             method: 'DELETE'
         });
         // Dispatch
         dispatch({
-            type: DELETE_LOG,
+            type: DELETE_DEVELOPER,
             payload: id
         })
     } catch(err) {
         dispatch({
-            type: LOGS_ERROR,
+            type: DEVELOPER_ERROR,
             payload: err.response.data
         })
     }
