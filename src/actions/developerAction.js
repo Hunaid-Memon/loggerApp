@@ -28,6 +28,27 @@ export const addDeveloper = developer => async dispatch => {
     }
 }
 
+// Action to delete a log
+export const deleteLog = id => async dispatch => {
+    try {
+        // Set loading to true
+        setLoading();
+        await fetch(`/logs/${id}`, {
+            method: 'DELETE'
+        });
+        // Dispatch
+        dispatch({
+            type: DELETE_LOG,
+            payload: id
+        })
+    } catch(err) {
+        dispatch({
+            type: LOGS_ERROR,
+            payload: err.response.data
+        })
+    }
+}
+
 
 export const setLoading = () => {
     return {
