@@ -48,7 +48,11 @@ export const addDeveloper = developer => async dispatch => {
     }
 }
 
+<<<<<<< HEAD
 // Action to delete a developer
+=======
+// Action to delete a log
+>>>>>>> af1830bc553d55f028d1f35b1f386832f42bbc18
 export const deleteDeveloper = id => async dispatch => {
     try {
         // Set loading to true
