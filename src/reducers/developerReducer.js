@@ -1,4 +1,4 @@
-import { ADD_DEVELOPER, DEVELOPER_ERROR, SET_LOADING } from "../actions/types";
+import { ADD_DEVELOPER, GET_DEVELOPERS, DEVELOPER_ERROR, DELETE_DEVELOPER, SET_LOADING } from "../actions/types";
 
 const initialstate = {
     developers: null,
@@ -11,6 +11,18 @@ export default (state = initialstate, action) => {
         case ADD_DEVELOPER:
             return {
                 developers: [...state.developers, action.payload],
+                loading: false
+            }
+        case GET_DEVELOPERS:
+            return {
+                ...state,
+                developers: action.payload,
+                loading: false
+            }
+        case DELETE_DEVELOPER:
+            return {
+                ...state,
+                developers: state.developers.filter(developer => developer.id !== action.payload),
                 loading: false
             }
         case DEVELOPER_ERROR:

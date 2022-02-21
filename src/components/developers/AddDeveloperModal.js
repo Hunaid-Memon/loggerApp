@@ -19,7 +19,7 @@ const AddDeveloperModal = ({ addDeveloper }) => {
             }
             addDeveloper(newDeveloper);
             M.toast({ html: 'Developer Added' });
-            console.log(firstName,lastName);
+            // console.log(firstName,lastName);
             setFirstName('');
             setLastName('');
         }

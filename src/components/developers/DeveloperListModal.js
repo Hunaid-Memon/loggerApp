@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import DeveloperItem from './DeveloperItem';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { getDevelopers } from '../../actions/developerAction'
 
-const DeveloperListModal = () => {
-    const [developers, setDevelopers] = useState([]);
-    const [loading, setLoading] = useState(false);
+const DeveloperListModal = ({ developer: { developers ,loading }, getDevelopers }) => {
+    // const [developers, setDevelopers] = useState([]);
+    // const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         getDevelopers();
@@ -11,14 +14,14 @@ const DeveloperListModal = () => {
         //estlint-disable-next-line
     }, [])
 
-    const getDevelopers = async () => {
-        setLoading(true);
-        const res = await fetch('/developers');
-        const data = await res.json();
+    // const getDevelopers = async () => {
+    //     setLoading(true);
+    //     const res = await fetch('/developers');
+    //     const data = await res.json();
 
-        setDevelopers(data);
-        setLoading(false);
-    }
+    //     setDevelopers(data);
+    //     setLoading(false);
+    // }
 
   return (
         <div className="modal" id="developer-list-modal">
@@ -38,4 +41,13 @@ const DeveloperListModal = () => {
     )
 };
 
-export default DeveloperListModal;
+DeveloperListModal.propTypes = {
+    developer: PropTypes.object.isRequired,
+    getDevelopers: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+    developer: state.developer
+})
+
+export default connect(mapStateToProps, { getDevelopers })(DeveloperListModal);
